@@ -12,20 +12,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int cont = 0;
-    TextView textView;
-
-    public void contar(View view){
-        cont++;
-        textView.setText(Integer.toString(cont));
-        Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.textView);
         Log.d("callback", "onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
     }
@@ -33,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        textView.setText(Integer.toString(0));
         Log.d("callback", "onStart");
         Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show();
     }
