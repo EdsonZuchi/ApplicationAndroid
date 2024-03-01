@@ -12,50 +12,53 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button button;
+    int cont = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Log.d("callback", "onCreate");
-        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.two);
+
+        button = findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button b = (Button) v;
+                cont++;
+                b.setText(Integer.toString(cont));
+            }
+        });
     }
 
     @Override
     protected void onStart(){
         super.onStart();
-        Log.d("callback", "onStart");
-        Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("callback", "onResume");
-        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onRestart(){
         super.onRestart();
-        Log.d("callback", "onRestart");
-        Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("callback", "onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("callback", "onStop");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("callback", "onDestroy");
     }
 }
